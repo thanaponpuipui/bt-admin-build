@@ -1,4 +1,4 @@
-const SERVER_URL = 'https:://ancient-fjord-27526.herokuapp.com'
+const SERVER_URL = 'https://ancient-fjord-27526.herokuapp.com'
 
 function postJson ({data, uri}, cb) {
   if (!uri) {
