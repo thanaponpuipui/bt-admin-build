@@ -39,40 +39,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Brands_1 = require("../../models/Brands");
-var cloudi_upload_1 = require("../../functions/cloudi-upload");
-var static_url_to_path_1 = __importDefault(require("../../functions/static-url-to-path"));
-var delete_image_1 = __importDefault(require("../../functions/delete_image"));
-function default_1(binfo) {
+var fs_1 = __importDefault(require("fs"));
+function deleteImageLocal(file) {
     return __awaiter(this, void 0, void 0, function () {
-        var brand, pathToImage, image, error_1;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    brand = new Brands_1.Brands();
-                    pathToImage = "";
-                    if (binfo.brandLogo) {
-                        // if image uri pass get full path to image
-                        pathToImage = static_url_to_path_1.default(binfo.brandLogo);
-                    }
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 4, , 5]);
-                    if (!(pathToImage !== "")) return [3 /*break*/, 3];
-                    return [4 /*yield*/, cloudi_upload_1.cloudUploadImage(pathToImage)];
-                case 2:
-                    image = _a.sent();
-                    binfo.brandLogo = image;
-                    // delete image after upload to cloudinary
-                    delete_image_1.default(pathToImage);
-                    _a.label = 3;
-                case 3: return [2 /*return*/, brand.write(binfo)];
-                case 4:
-                    error_1 = _a.sent();
-                    throw error_1;
-                case 5: return [2 /*return*/];
-            }
+            return [2 /*return*/, new Promise(function (resolve, reject) {
+                    fs_1.default.unlink(file, function (error) {
+                        if (error)
+                            return reject(error);
+                        return resolve(true);
+                    });
+                })];
         });
     });
 }
-exports.default = default_1;
+exports.default = deleteImageLocal;

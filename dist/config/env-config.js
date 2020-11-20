@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mainDb = exports.dbUrl = exports.port = void 0;
+exports.cloudinary_secret = exports.mainDb = exports.dbUrl = exports.port = void 0;
 var dotenv_1 = __importDefault(require("dotenv"));
 var env = process.env;
 // using dotenv for development
@@ -17,3 +17,4 @@ exports.port = env.PORT || 8000;
 exports.dbUrl = env.DB_URI || 'mongodb://localhost:27017'; // default to local mongodb uri
 // database name use in multiple models
 exports.mainDb = env.MAIN_DB_NAME || 'bt'; // default "bt"
+exports.cloudinary_secret = env.CLOUDINARY_SECRET_API;
