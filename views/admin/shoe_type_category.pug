@@ -18,14 +18,15 @@ block content
           br
           label(for="stThai") Shoe type thai name
           input(type="text" name="shoeTypeThai")
-          
-          p category select
-          unless categories.length > 0
-            p Current no category please add one
-          ul.select-category-list
-            each cate in categories
-              li= cate.category_thai
-                input(type="checkbox" name="category" value=cate._id)
+
+          //-
+            p category select
+            unless categories.length > 0
+              p Current no category please add one
+            ul.select-category-list
+              each cate in categories
+                li= cate.category_thai
+                  input(type="checkbox" name="category" value=cate._id)
 
           unless categories.length === 0
             button(type="submit") Add
