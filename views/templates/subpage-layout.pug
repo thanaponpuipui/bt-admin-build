@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    include ../includes/meta-data.pug
+    title= "BT-Admin: " + title
+    block style
+      link(rel="stylesheet" href="/admin/style/main.css")
+      link(rel="stylesheet" href="/admin/style/nav.css")
+  body
+    include ../includes/admin_nav.pug
+    .spacer
+    main
+      block content
+
+    block script
+      script(src="/admin/js/main.js")
+

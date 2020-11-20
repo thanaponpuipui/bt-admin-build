@@ -1,0 +1,31 @@
+extends ../templates/subpage-layout.pug
+
+block content
+  h1 Brands View
+
+  .brand-input-form
+    form(enctype="multipart/form-data" method="POST" name="brand-form")
+      label(for="bn")
+        brand name: 
+      input(type="text" name="brandName")
+      br
+      label(for="binfo")
+        brand info: 
+      textarea(type="text" name="brandInfo")
+      br
+      label(for="blogo")
+        upload brand logo
+      input(type="file" name="image")
+      br
+      button(type="summit")
+        add brand
+  .brand-list
+  each brand in brands
+    article.brand-article
+      img(src=brand.brandLogo alt=brand.brandName + " Brand Logo")
+      p= brand.brandName
+      p= brand.brandInfo
+
+append script
+  script(src='/admin/js/brand_input.js')
+

@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.setProductImageService = exports.setBrandLogoService = exports.setShoeTypeService = exports.setProductDiscountService = exports.setProductService = exports.setCategoryService = exports.setBrandService = void 0;
+var set_brand_1 = require("./set_brand");
+Object.defineProperty(exports, "setBrandService", { enumerable: true, get: function () { return __importDefault(set_brand_1).default; } });
+var set_category_1 = require("./set_category");
+Object.defineProperty(exports, "setCategoryService", { enumerable: true, get: function () { return __importDefault(set_category_1).default; } });
+var set_product_1 = require("./set_product");
+Object.defineProperty(exports, "setProductService", { enumerable: true, get: function () { return __importDefault(set_product_1).default; } });
+var set_product_discount_1 = require("./set_product_discount");
+Object.defineProperty(exports, "setProductDiscountService", { enumerable: true, get: function () { return __importDefault(set_product_discount_1).default; } });
+var set_shoe_type_1 = require("./set_shoe_type");
+Object.defineProperty(exports, "setShoeTypeService", { enumerable: true, get: function () { return __importDefault(set_shoe_type_1).default; } });
+var set_brand_logo_1 = require("./set_brand_logo");
+Object.defineProperty(exports, "setBrandLogoService", { enumerable: true, get: function () { return __importDefault(set_brand_logo_1).default; } });
+var set_product_image_1 = require("./set_product_image");
+Object.defineProperty(exports, "setProductImageService", { enumerable: true, get: function () { return __importDefault(set_product_image_1).default; } });

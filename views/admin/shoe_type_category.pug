@@ -1,0 +1,65 @@
+extends ../templates/subpage-layout.pug
+
+block content
+
+  h1 Edit Menus and shoe's typelist and category
+
+  hr
+
+  .content
+    .input-wrapper
+      .shoe-type-input
+        h2 Add New Shoe's Type
+
+        form(name="st-input" enctype="multipart/form-data" method="POST")
+
+          label(for="shoetype") Shoe type name
+          input(type="text" name="shoeType")
+          br
+          label(for="stThai") Shoe type thai name
+          input(type="text" name="shoeTypeThai")
+          
+          p category select
+          unless categories.length > 0
+            p Current no category please add one
+          ul.select-category-list
+            each cate in categories
+              li= cate.category_thai
+                input(type="checkbox" name="category" value=cate._id)
+
+          unless categories.length === 0
+            button(type="submit") Add
+          
+      .category-input
+        h2 Add New Shoe's Category
+
+        form(enctype="multipart/form-data" method="POST" name="cat-input")
+          label(for="category") Category name
+          input(type="text" name="category")
+          br
+          label(for="catethai") Catagory name thai
+          input(type="text" name="categoryThai")
+          br
+          button(type="submit") Add
+
+    hr
+    .view-section
+      .category-view
+        h2 Categories List View
+        ul.category-list
+          each cate in categories
+            li.category-item
+              p= "ไทย: " + cate.category_thai
+              p= "english: " + cate.category
+
+      .shoe-type-view
+        h2 Shoe Types List View
+        ul.type-list
+          each type in shoeTypes
+            li.shoe-tyoe-item
+              p= "ไทย: " + type.shoeType_thai
+              p= "English: " + type.shoeType
+
+append script
+  script(src="/admin/js/category_type_input.js")
+

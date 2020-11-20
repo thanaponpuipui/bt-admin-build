@@ -1,0 +1,27 @@
+/********nav style**********/
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: var(--nav-height);
+  padding: var(--side-pad);
+  z-index: 5;
+  background: #666666;
+  font-size: 1.28rem;
+}
+
+nav ul.nav-list {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+nav ul.nav-list li a {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+

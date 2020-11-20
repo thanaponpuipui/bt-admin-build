@@ -1,0 +1,54 @@
+extends ../templates/subpage-layout.pug
+
+block content
+  h1 Product Input
+
+  form(enctype="multipart/form-data" method="POST" name="product-form")
+    p(class="product-name") product name
+      input(type="text" name="pname")
+
+    p(class="product-price") price
+      input(type="number" name="price")
+
+    p(class="product-link") link
+      input(type="text" name="url")
+
+    p(class="image-upload") image upload
+      input(type='file' name="image")
+
+    p.product-brand select brand
+      if brands.length === 0
+        br
+        p no brand abailable please add one.
+        a(href="/admin/brand-edit") to brand page
+      else
+        select(name="brand")
+          each brand in brands
+            option(value=brand._id)= brand.brandName
+
+    p(class="product-type") select type
+      if shoeTypes.length === 0
+        br
+        p no shoe type available please add one.
+        a(href="/admin/type-category") to type and category page
+      else
+        select(name="shoeType")
+          each shoeType in shoeTypes
+            option(value=shoeType._id)= shoeType.shoeType
+
+    p(class="category-select") Category
+      unless categories.length > 0
+        br
+        p no category available please add one.
+        a(href="/admin/type-category") to type and category page
+      each cate in categories
+        p= cate.category
+          input(type="checkbox" value=cate._id name="category")
+
+    unless categories.length === 0 || shoeTypes.length === 0
+      button(type="submit") submit product
+
+    include ../includes/admin_products_view.pug
+
+append script
+  script(src="/admin/js/product_input.js")

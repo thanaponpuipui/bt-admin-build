@@ -1,0 +1,63 @@
+/* global style */
+
+:root { 
+  /* css var */
+  --side-pad: 0 50px;
+  --content-max-size: 1048px;
+  --nav-height: 80px;
+}
+
+body {
+  margin: 0;
+  padding: var(--side-pad);
+  font-family: sans-serif;
+}
+
+/* content wrapper style */
+.spacer {
+  height: var(--nav-height)
+}
+
+main {
+  max-width: var(--content-max-size);
+  margin: 0 auto;
+  overflow: hidden;
+  background: #EEEEEE;
+  box-sizing: border-box;
+  padding: 0 24px;
+}
+
+/* Link style */
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+/* list style */
+ul {
+  list-style: none;
+}
+
+/* mobile size media */
+
+@media only screen and (max-width: 450px) {
+  /* side padding to 20px when mobile screen size */
+  :root {
+    --side-pad: 0 10px;
+  }
+}
+
+/* header text style */
+
+/* title style using h1 */
+h1 {
+  color: hotpink;
+}
+
+/* disabled link style */
+.disabled {
+  color: #444444;
+  opacity: .7;
+  cursor: default;
+}
+

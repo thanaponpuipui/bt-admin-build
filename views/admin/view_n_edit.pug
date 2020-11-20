@@ -1,0 +1,10 @@
+extends ../templates/subpage-layout.pug
+
+block content
+  h1 ALL PRODUCTS
+  
+  each prod in products
+    article.product
+      p= "product name: " + prod.name 
+      p= prod.price + " bath"
+

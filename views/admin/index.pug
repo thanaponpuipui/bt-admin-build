@@ -1,0 +1,29 @@
+extends ../templates/main-layout.pug
+
+append style
+  link(rel="stylesheet" href="/admin/style/home.css")
+block content
+  h1 Bathadee Admin First Page
+
+  hr
+  .user-greeting
+    - var user = "Guest"
+    h2= "Hello: " + user
+    button.logout-bnt(type=button) Logout
+
+  .menu-content
+    h2 Admin Menu
+    a(href="/admin/product-add") to product add
+    br
+    a(href="/admin/type-category") category and type setting
+    br
+    a(href="/admin/view") view all
+    br
+    a(href="/admin/brand-edit") to brands page
+    br
+    a(href="/admin/pages-setting") to pages setting
+
+  br
+
+  a(href="/admin/logout") logout
+

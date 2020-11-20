@@ -1,0 +1,37 @@
+// product view reusable component for input page and view page
+
+//-
+  page var need
+  - products: {
+    _id > need when edit (id as reference)
+    name
+    url
+    price
+    imageUrl
+    category
+    shoeType
+    brand
+  }
+
+.product-view-wrapper
+  each prod in products
+    a(href=prod.url)
+      article.product-view
+        h2= prod.name
+        p= prod.brand
+        .prodduct-image-wrap
+          img(src=prod.imageUrl alt="photo of " + prod.name)
+        if Array.isArray(prod.category)
+          p
+            each cate in prod.category
+              = cate.category + " "
+        else
+          p= prod.category
+
+        p= prod.shoeType.shoeType
+        if !prod.discount
+          p.product-price= prod.price + "Bath"
+        else
+          p.product-price.on-discount= prod.price
+            span.discount-price= prod.discountPrice
+    
